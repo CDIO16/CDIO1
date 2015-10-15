@@ -80,7 +80,15 @@ class BoardTest extends Board
 			System.out.println("Fejl! Den anden spiller fik ikke en chance for at blive uafgjort med spiller 1!");
 			++errorCount;
 		}
-		
+		winners.clear();
+		currentPlayer = players.get(0);
+		players.get(0).setPoints(38);
+		res = new DiceResult(4, 4);
+		if(winners.contains(players.get(0).getName()))
+		{
+			System.out.println("Fejl! En spiller kan først vinde ved at få to ens EFTER han har fået 40 points!");
+			++errorCount;
+		}
 		return errorCount;
 	}
 	

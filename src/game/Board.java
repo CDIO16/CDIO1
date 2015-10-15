@@ -58,6 +58,9 @@ public class Board {
 	//Evaluates a player's roll to figure out what should happen
 	protected void evaluateRoll(DiceResult roll, DiceResult prevRoll)
 	{
+		//Player should only win by getting a pair after surpassing 40 points
+		//Therefore we need to store it
+		boolean has40Points = currentPlayer.getPoints() >= 40;
 		currentPlayer.addPoints(roll.snakeEyes());
 		if(roll.isPair())
 		{
@@ -66,7 +69,7 @@ public class Board {
 			{
 				currentPlayer.setPoints(0);
 			}
-			else if((currentPlayer.getPoints())>=40)
+			else if(has40Points)
 			{
 				//Adds the player to the list of winners
 				winners.add(currentPlayer.getName());
