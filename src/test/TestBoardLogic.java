@@ -84,9 +84,19 @@ class BoardTest extends Board
 		currentPlayer = players.get(0);
 		players.get(0).setPoints(38);
 		res = new DiceResult(4, 4);
+		evaluateRoll(res, prevRes);		
 		if(winners.contains(players.get(0).getName()))
 		{
 			System.out.println("Fejl! En spiller kan først vinde ved at få to ens EFTER han har fået 40 points!");
+			++errorCount;
+		}
+		players.get(0).setPoints(40);
+		currentPlayer = players.get(0);
+		res = new DiceResult(2,2);
+		evaluateRoll(res, prevRes);		
+		if(!winners.contains(players.get(0).getName()))
+		{
+			System.out.println("Fejl! Spilleren vandt ikke selvom han havde over 40 points!");
 			++errorCount;
 		}
 		return errorCount;
