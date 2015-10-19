@@ -1,5 +1,6 @@
 package test;
 
+import desktop_resources.GUI;
 import game.Board;
 import game.DiceResult;
 import game.Player;
@@ -75,6 +76,8 @@ class BoardTest extends Board
 			System.out.println("Fejl! Spilleren vandt ikke ved at slå to 6'ere i træk!");
 			++errorCount;
 		}
+		
+		//Tjekker om spiller 2 får sin chance for at slå uafgjort
 		if(currentPlayer==players.get(0))
 		{
 			System.out.println("Fejl! Den anden spiller fik ikke en chance for at blive uafgjort med spiller 1!");
@@ -82,6 +85,8 @@ class BoardTest extends Board
 		}
 		winners.clear();
 		currentPlayer = players.get(0);
+		
+		//Tjekker om spilleren vinder ved at komme over 40 med et par. 
 		players.get(0).setPoints(38);
 		res = new DiceResult(4, 4);
 		evaluateRoll(res, prevRes);		
@@ -90,6 +95,8 @@ class BoardTest extends Board
 			System.out.println("Fejl! En spiller kan først vinde ved at få to ens EFTER han har fået 40 points!");
 			++errorCount;
 		}
+		
+		//Tjekker om spilleren vinder, når han har 40 points(finder brug af < i stedet for <=)
 		players.get(0).setPoints(40);
 		currentPlayer = players.get(0);
 		res = new DiceResult(2,2);
@@ -119,6 +126,7 @@ public class TestBoardLogic	{
 		{
 			System.out.println("Fandt " + errors + " fejl!");
 		}
+		GUI.close();
 	}
 
 }

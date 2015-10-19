@@ -40,7 +40,7 @@ public class TestDiceUniformness {
 			double pairs = 0;
 			
 			Dice testDice = new Dice();
-			double sum = repeat*2;
+			double sum = repeat*2; //We roll a pair of dice, therefore the total amount of dice rolled will be double 
 			while(repeat-- > 0)
 			{
 				DiceResult result = testDice.rollDice();
@@ -52,7 +52,7 @@ public class TestDiceUniformness {
 			}
 			String results  = 	 "*************************\n" +
 								 "*                       *\n" +
-								 "*       Resultater     *\n" +
+								 "*       Resultater      *\n" +
 								 "*     ud af 1000 kast   *\n" +
 								 "*                       *\n" +
 								 "*************************\n";
@@ -69,9 +69,9 @@ public class TestDiceUniformness {
 				}
 				System.out.printf("\t%d = %.2f%%", i+1, percent);
 			}
-			System.out.println("\nAntallet af par:");
+			System.out.println("\nAndelen af par:");
 			System.out.printf("\t%.2f%%", (pairs/(sum/2))*100);
-			System.out.println("\nStørste afvigelse(procentpoint):");
+			System.out.println("\nStørste afvigelse fra statisk sandsynlighed(procentpoint):");
 			System.out.printf("\t%.2f%%", highestDiversion);
 			
 	}

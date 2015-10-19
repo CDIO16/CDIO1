@@ -23,7 +23,6 @@ public final class ColorField extends Field {
 		}
 
 		@Override
-		@SuppressWarnings("unused")
 		public ColorField.Builder setFgColor(Color fgColor) {
 			return this;
 		}
