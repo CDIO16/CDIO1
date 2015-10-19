@@ -190,6 +190,7 @@ public class Board {
 				strWinners += " og " + winners.get(i)  ;
 			}
 			GUI.displayChanceCard("Spillet blev uafgjort mellem: " + strWinners);
+			
 		}
 		
 	GUI.showMessage("Spillet er slut!");
@@ -203,7 +204,7 @@ public class Board {
 			{
 				board.startGame();
 			}	
-			
+			GUI.close();
 	}
 	
 }
